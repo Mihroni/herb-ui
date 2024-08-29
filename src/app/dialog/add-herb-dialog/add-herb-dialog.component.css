@@ -1,0 +1,83 @@
+
+.herb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Adds space between form fields */
+
+  mat-form-field {
+    width: 100%; /* Ensures all form fields take up full width */
+  }
+}
+
+.mat-dialog-title {
+  font-size: 24px; /* Larger font for dialog title */
+  font-weight: bold;
+  margin-bottom: 16px; /* Adds space below the title */
+  color: #3f51b5; /* Primary color to match Angular Material theme */
+}
+
+.mat-dialog-content {
+  padding: 0 24px 24px; /* Adds padding to the dialog content */
+}
+
+.dialog-actions {
+  padding: 16px 24px; /* Adds padding to actions */
+  background-color: #f1f1f1; /* Light background for actions section */
+  border-top: 1px solid #e0e0e0; /* Subtle border above actions */
+}
+
+.mat-form-field .mat-form-field-label {
+  font-size: 14px;
+}
+
+.mat-form-field .mat-input-element,
+.mat-form-field .mat-select-trigger {
+  padding: 10px 14px; /* Adds padding inside the input and select fields */
+  font-size: 16px;
+}
+
+.locations-list {
+  margin-top: 16px; /* Adds space above locations list */
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #3f51b5;
+}
+
+.location-item {
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+}
+
+.location-text {
+  margin: 0;
+  font-size: 14px;
+}
+
+.map-container {
+  height: 300px; /* Fixed height for the map */
+  margin-top: 16px; /* Space above the map */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden; /* Ensures the map fits within its container */
+}
+
+button[mat-button] {
+  font-weight: 500;
+}
+
+button[mat-raised-button] {
+  font-weight: bold;
+  padding: 8px 24px;
+}
+
+button[mat-button]:hover,
+button[mat-raised-button]:hover {
+  background-color: rgba(63, 81, 181, 0.1); /* Lighter primary color on hover */
+}

@@ -1,0 +1,31 @@
+<div class="chat-container">
+  <div class="message-list">
+    <div
+      *ngFor="let message of messages"
+      [ngClass]="{
+        'message-right': isMessageFromCurrentUser(message),
+        'message-left': !isMessageFromCurrentUser(message)
+      }"
+      class="message-item"
+    >
+      <div class="message-content">
+        <p class="message-user">
+          <strong>{{ isMessageFromCurrentUser(message) ? 'You' : message.senderId }}</strong>
+        </p>
+        <p>{{ message.message }}</p>
+        <span class="message-time">{{ message.sendAt | date: 'shortTime' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="message-input-container">
+    <input
+      type="text"
+      [(ngModel)]="newMessage"
+      placeholder="Type a message"
+      class="message-input"
+      (keyup.enter)="sendMessage()"
+    />
+    <button (click)="sendMessage()" class="send-button">Send</button>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.herb-and-groups-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between the sections */
+}
+
+.herb-container {
+  flex: 1;
+  min-width: 300px; /* Ensure the herb container doesn't get too narrow */
+  max-width: 600px; /* Set a maximum width for the herb container */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.herb-details {
+  margin-bottom: 20px;
+}
+
+.herb-details h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.herb-details p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  line-height: 1.5;
+  color: #34495e;
+}
+
+.herb-details p strong {
+  color: #2980b9;
+}
+
+.herb-map {
+  width: 100%;
+  height: 500px; /* Height adjusted to fit the content */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.groups-section {
+  flex: 2;
+  min-width: 300px; /* Ensure the groups section doesn't get too narrow */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.groups-section h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.groups-section .row-cols-1 .col {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #34495e;
+}
+
+button[mat-button] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+/* Pagination Controls */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.pagination-controls .pagination-control {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff;
+  background-color: #fff;
+  text-align: center;
+  transition: background-color 0.3s, border-color 0.3s;
+  margin: 0 4px;
+}
+
+.pagination-controls .pagination-control:hover {
+  background-color: #f1f1f1;
+  border-color: #007bff;
+}
+
+.pagination-controls .pagination-control.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-controls .pagination-control.disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  border-color: #ddd;
+  background-color: #f9f9f9;
+}
+
+.pagination-controls .pagination-control .page-number {
+  font-weight: bold;
+}
+/* Sort Button */
+.groups-section .sort-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.groups-section .sort-btn:hover {
+  background-color: #5a6268;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

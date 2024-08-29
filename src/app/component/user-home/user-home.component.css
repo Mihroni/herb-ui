@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+/* Search Container */
+.search-container {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ced4da;
+  border-radius: 30px;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+  border-color: #80bdff;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+}
+
+.create-herb-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 15px;
+}
+
+.create-herb-btn:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Full-Width Search Input When No Admin Button */
+.search-container.no-admin .search-input {
+  max-width: 600px;
+}
+
+.search-container .search-input {
+  flex-grow: 1;
+}
+
+/* Herb Table */
+.herb-table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.herb-table th {
+  background-color: #007bff;
+  color: white;
+  text-align: left;
+  padding: 16px;
+  font-weight: bold;
+}
+
+.herb-table td {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+
+.herb-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.herb-row:hover {
+  background-color: #f1f1f1;
+}
+
+.herb-name {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.herb-benefits {
+  font-style: italic;
+  color: #495057;
+}
+
+.season-tag {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #fff;
+  padding: 4px 8px;
+  margin: 4px 0;
+  border-radius: 12px;
+  font-size: 0.85em;
+}
+
+.herb-locations button {
+  background-color: #17a2b8;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-size: 14px;
+}
+
+.herb-locations button:hover {
+  background-color: #138496;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-input {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-controls .pagination-control {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff;
+  background-color: #fff;
+  text-align: center;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pagination-controls .pagination-control:hover {
+  background-color: #f1f1f1;
+  border-color: #007bff;
+}
+
+.pagination-controls .pagination-control.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-controls .pagination-control.disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  border-color: #ddd;
+  background-color: #f9f9f9;
+}

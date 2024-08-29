@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Add New Herb</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="herbForm" class="herb-form">
+    <!-- Name Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter herb name">
+    </mat-form-field>
+
+    <!-- Description Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" placeholder="Enter herb description"></textarea>
+    </mat-form-field>
+
+    <!-- Seasons Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Seasons</mat-label>
+      <mat-select formControlName="seasons" multiple>
+        <mat-option *ngFor="let season of availableSeasons" [value]="season">{{season}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Benefits Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Benefits</mat-label>
+      <textarea matInput formControlName="benefits" placeholder="Enter herb benefits"></textarea>
+    </mat-form-field>
+
+    <!-- Locations List -->
+    <div formArrayName="locations" class="locations-list">
+      <h3 class="section-title">Locations:</h3>
+      <div *ngFor="let location of locations.controls; let i = index" [formGroupName]="i" class="location-item">
+        <p class="location-text">Location {{i + 1}}: X: {{location.value.x}}, Y: {{location.value.y}}</p>
+      </div>
+    </div>
+
+    <!-- Map for Adding Locations -->
+    <div id="map" class="map-container"></div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

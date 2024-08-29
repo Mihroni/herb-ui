@@ -1,0 +1,25 @@
+<header class="header-container">
+  <div class="logo-section">
+    <a class="logo-container" href="#">
+      <img class="logo" src="../../../images/Logo.png" alt="Logo">
+    </a>
+  </div>
+  <div class="app-info-section">
+    <h1 class="app-title">Herb Gathering Guide</h1>
+    <p class="app-description">Discover, locate, and learn about wild herbs. Connect with local gathering groups and explore nature's pharmacy.</p>
+  </div>
+  <div class="nav-section">
+    <nav class="button-container">
+      <ng-container *ngIf="!isAuthenticated">
+        <button (click)="login()" class="btn btn-login">Login</button>
+        <button (click)="register()" class="btn btn-register">Registration</button>
+      </ng-container>
+
+      <ng-container *ngIf="isAuthenticated">
+        <span class="menu-container">
+          <button class="btn btn-logout" (click)="logout()">Logout</button>
+        </span>
+      </ng-container>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,51 @@
+.herb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Adds space between form fields */
+
+  mat-form-field {
+    width: 100%; /* Ensures all form fields take up full width */
+  }
+}
+
+.mat-dialog-title {
+  font-size: 24px; /* Larger font for dialog title */
+  font-weight: bold;
+  margin-bottom: 16px; /* Adds space below the title */
+  color: #3f51b5; /* Primary color to match Angular Material theme */
+}
+
+.mat-dialog-content {
+  padding: 0 24px 24px; /* Adds padding to the dialog content */
+}
+
+.dialog-actions {
+  padding: 16px 24px; /* Adds padding to actions */
+  background-color: #f1f1f1; /* Light background for actions section */
+  border-top: 1px solid #e0e0e0; /* Subtle border above actions */
+}
+
+mat-form-field {
+  .mat-form-field-label {
+    font-size: 14px;
+  }
+
+  .mat-input-element {
+    padding: 10px 14px; /* Adds padding inside the input fields */
+    font-size: 16px;
+  }
+}
+
+button[mat-button] {
+  font-weight: 500;
+}
+
+button[mat-raised-button] {
+  font-weight: bold;
+  padding: 8px 24px;
+}
+
+button[mat-button]:hover,
+button[mat-raised-button]:hover {
+  background-color: rgba(63, 81, 181, 0.1); /* Lighter primary color on hover */
+}

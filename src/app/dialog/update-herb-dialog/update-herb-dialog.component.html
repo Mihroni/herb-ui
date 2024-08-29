@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Update Herb</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="herbForm" class="herb-form">
+    <!-- Name Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter herb name">
+    </mat-form-field>
+
+    <!-- Description Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" placeholder="Enter herb description"></textarea>
+    </mat-form-field>
+
+    <!-- Benefits Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Benefits</mat-label>
+      <textarea matInput formControlName="benefits" placeholder="Enter herb benefits"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

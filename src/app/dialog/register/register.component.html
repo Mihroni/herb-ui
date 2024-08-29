@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Register</h2>
+<form (ngSubmit)="save()" #registerForm="ngForm">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="username" name="username" required>
+      <mat-error *ngIf="registerForm.controls['username']?.invalid && registerForm.controls['username']?.touched">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required email>
+        <mat-error *ngIf="registerForm.controls['email']?.invalid && registerForm.controls['email']?.touched">
+          Valid email is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        minlength="6"
+        autocomplete="new-password"
+      />
+      <mat-error *ngIf="registerForm.controls['password']?.invalid && registerForm.controls['password']?.touched">
+        Password must be at least 6 characters long
+      </mat-error>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!registerForm.valid">Register</button>
+  </mat-dialog-actions>
+</form>

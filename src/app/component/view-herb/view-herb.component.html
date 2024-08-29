@@ -1,0 +1,10 @@
+  <p class="map-instruction">Click on the pins on the map to view the groups for gathering this specific herb!</p>
+<div class="herb-container">
+  <div class="herb-details">
+    <h2>{{ herb.name }}</h2>
+    <p><strong>Description:</strong> {{ herb.description }}</p>
+    <p><strong>Seasons:</strong> {{ herb.seasons.join(', ') }}</p>
+    <p><strong>Benefits:</strong> {{ herb.benefits }}</p>
+  </div>
+  <div id="map" class="herb-map"></div>
+</div>

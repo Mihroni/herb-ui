@@ -1,0 +1,47 @@
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="filterHerbs()"
+    placeholder="Search by name, description, or benefits"
+    class="search-input" />
+
+  <button *ngIf="isAdmin" (click)="openAddHerbDialog()" class="create-herb-btn">
+    Add New Herb
+  </button>
+</div>
+
+<table class="herb-table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Benefits</th>
+    <th>Seasons</th>
+    <th>Locations</th>
+    <th *ngIf="isAdmin">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let herb of filteredHerbs | paginate: { itemsPerPage: 6, currentPage: p }" class="herb-row">
+    <td class="herb-name">{{ herb.name }}</td>
+    <td class="herb-description">{{ herb.description }}</td>
+    <td class="herb-benefits">{{ herb.benefits }}</td>
+    <td class="herb-seasons">
+      <span *ngFor="let season of herb.seasons" class="season-tag">{{ season }}</span>
+    </td>
+    <td class="herb-locations">
+      <button (click)="viewHerb(herb.id)">View Herb</button>
+    </td>
+    <td *ngIf="isAdmin" class="herb-locations">
+      <button (click)="openUpdateHerbDialog(herb)">Update</button>
+      <button (click)="deleteHerb(herb.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<div class="pagination-container">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

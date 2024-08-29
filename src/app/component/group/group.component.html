@@ -1,0 +1,56 @@
+<div class="container my-5">
+  <div class="herb-and-groups-row">
+    <!-- Herb and Map Section -->
+    <div class="herb-container">
+      <div class="herb-details">
+        <h2>{{ herb.name }}</h2>
+        <p><strong>Description:</strong> {{ herb.description }}</p>
+        <p><strong>Benefits:</strong> {{ herb.benefits }}</p>
+        <p><strong>Seasons:</strong> {{ herb.seasons.join(', ') }}</p>
+        <hr />
+        <h5>Location Information</h5>
+        <p><strong>GPS:</strong><br> {{ gpsCoordinates.lat }}, {{ gpsCoordinates.lon }}</p>
+        <button *ngIf="googleMapsUrl" mat-raised-button color="primary" (click)="viewLocation()">View Location</button>
+      </div>
+
+      <div id="map" class="herb-map map-container"></div>
+    </div>
+
+    <!-- Groups Section -->
+    <div class="groups-section">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Groups</h1>
+        <button mat-raised-button color="primary" (click)="createGroup()">Create Group</button>
+        <button mat-raised-button color="secondary" (click)="sortGroupsByGatheringTime()">Sort by Upcoming Gathering</button>
+      </div>
+
+      <div *ngIf="groups.length === 0" class="alert alert-info">
+        No groups created yet. Be the first one to create one!
+      </div>
+
+      <div *ngIf="groups.length > 0" class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let group of groups | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ group.description }}</h5>
+              <p class="card-text">
+                Participants: {{ group.participants.join(', ') }}
+              </p>
+              <p class="card-text">
+                Gathering Time: {{ group.gatheringTime | date: 'yyyy-MM-dd HH:mm' }}
+              </p>
+              <button mat-button color="primary" (click)="activity(group.id)" *ngIf="canJoin(group)">Join Group</button>
+              <button mat-button color="accent" (click)="viewChat(group.id)" *ngIf="!canJoin(group)">View Chat</button>
+              <button mat-button color="warn" (click)="activity(group.id)" *ngIf="!canJoin(group)">Leave Group</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="pagination-container">
+        <pagination-controls (pageChange)="p = $event" class="pagination-controls"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
