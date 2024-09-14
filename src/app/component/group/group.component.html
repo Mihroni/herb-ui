@@ -4,6 +4,13 @@
     <div class="herb-container">
       <div class="herb-details">
         <h2>{{ herb.name }}</h2>
+
+        <!-- Herb Image -->
+        <div *ngIf="herb.imageUrl" class="herb-image-container">
+          <img [src]="this.imageUrl" alt="{{ herb.name }}" class="herb-image" />
+        </div>
+
+        <!-- Description and other details -->
         <p><strong>Description:</strong> {{ herb.description }}</p>
         <p><strong>Benefits:</strong> {{ herb.benefits }}</p>
         <p><strong>Seasons:</strong> {{ herb.seasons.join(', ') }}</p>

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {map, Observable} from 'rxjs';
 import {Herb} from "../model/herb";
 import {HerbDto} from "../dto/herb-dto";
 import {Group} from "../model/group";
+import {ImageDto} from "../dto/image-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,17 @@ export class HerbService {
 
   findByLocationId(locationId: string): Observable<Herb> {
     return this.http.get<Herb>(`http://localhost:8080/herbs/location?locationId=${locationId}`);
+  }
+
+  uploadImage(image: File): Observable<ImageDto> {
+    const formData = new FormData();
+    formData.append('image', image);
+
+    // Map the response (plain text) to an ImageDto
+    return this.http.post(`http://localhost:8080/herbs/upload`, formData, { responseType: 'text' }).pipe(
+      map((imageUrl: string) => {
+        return { imageUrl }; // Return an object that matches ImageDto
+      })
+    );
   }
 }

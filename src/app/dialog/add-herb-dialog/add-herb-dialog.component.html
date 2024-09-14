@@ -18,7 +18,7 @@
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Seasons</mat-label>
       <mat-select formControlName="seasons" multiple>
-        <mat-option *ngFor="let season of availableSeasons" [value]="season">{{season}}</mat-option>
+        <mat-option *ngFor="let season of availableSeasons" [value]="season">{{ season }}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -28,11 +28,17 @@
       <textarea matInput formControlName="benefits" placeholder="Enter herb benefits"></textarea>
     </mat-form-field>
 
+    <!-- Image Upload Field -->
+    <div class="image-upload-section">
+      <label for="herb-image">Upload Image</label>
+      <input type="file" id="herb-image" (change)="onImageSelected($event)" accept="image/*">
+    </div>
+
     <!-- Locations List -->
     <div formArrayName="locations" class="locations-list">
       <h3 class="section-title">Locations:</h3>
       <div *ngFor="let location of locations.controls; let i = index" [formGroupName]="i" class="location-item">
-        <p class="location-text">Location {{i + 1}}: X: {{location.value.x}}, Y: {{location.value.y}}</p>
+        <p class="location-text">Location {{ i + 1 }}: X: {{ location.value.x }}, Y: {{ location.value.y }}</p>
       </div>
     </div>
 

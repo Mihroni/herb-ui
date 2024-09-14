@@ -9,4 +9,5 @@ export interface HerbDto {
   seasons: Season[];
   benefits: string;
   locations: LocationDto[];
+  imageUrl: string
 }

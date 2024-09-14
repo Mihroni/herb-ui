@@ -9,4 +9,5 @@ export interface Herb {
   seasons: Season[];
   benefits: string;
   locations: Location[];
+  imageUrl: string;
 }

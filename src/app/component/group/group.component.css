@@ -151,3 +151,13 @@ button[mat-button] {
   background-color: #5a6268;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+.herb-image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.herb-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

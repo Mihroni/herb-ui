@@ -35,6 +35,7 @@ export class GroupComponent implements OnInit {
   vectorSource = new VectorSource();
   googleMapsUrl: string = '';
   gpsCoordinates: { lat: number; lon: number } = { lat: 0, lon: 0 };
+  imageUrl: string = '';
 
   constructor(private route: ActivatedRoute, private readonly groupService: GroupService,private dialog: MatDialog, private readonly router: Router, private readonly herbService: HerbService) {
   }
@@ -48,6 +49,8 @@ export class GroupComponent implements OnInit {
     await this.initializeMap();
     await this.convertToGPSCoordinates();
     await this.generateGoogleMapsUrl();
+    const parsedUrl = this.parseImageUrl(this.herb.imageUrl);
+    this.imageUrl = 'http://localhost:8080' + parsedUrl;
   }
 
   async getById(id: string | null): Promise<void> {
@@ -173,5 +176,18 @@ export class GroupComponent implements OnInit {
         return 1;
       }
     });
+  }
+
+  private parseImageUrl(url: string): string {
+    try {
+      // Parse the JSON string to get the object
+      const parsedObject = JSON.parse(url);
+      // Extract the imageUrl value
+      return parsedObject.imageUrl;
+    } catch (error) {
+      console.error('Error parsing image URL:', error);
+      // If parsing fails, return the original URL
+      return url;
+    }
   }
 }
