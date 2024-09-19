@@ -36,6 +36,7 @@ export class GroupComponent implements OnInit {
   googleMapsUrl: string = '';
   gpsCoordinates: { lat: number; lon: number } = { lat: 0, lon: 0 };
   imageUrl: string = '';
+  displayedImage: string | null = null;
 
   constructor(private route: ActivatedRoute, private readonly groupService: GroupService,private dialog: MatDialog, private readonly router: Router, private readonly herbService: HerbService) {
   }
@@ -49,8 +50,8 @@ export class GroupComponent implements OnInit {
     await this.initializeMap();
     await this.convertToGPSCoordinates();
     await this.generateGoogleMapsUrl();
-    const parsedUrl = this.parseImageUrl(this.herb.imageUrl);
-    this.imageUrl = 'http://localhost:8080' + parsedUrl;
+    await this.loadImage();
+    console.log(this.imageUrl);
   }
 
   async getById(id: string | null): Promise<void> {
@@ -189,5 +190,19 @@ export class GroupComponent implements OnInit {
       // If parsing fails, return the original URL
       return url;
     }
+  }
+
+  async loadImage() {
+    const parsedUrl = this.parseImageUrl(this.herb.imageUrl);
+    this.imageUrl = 'C:/Users/Dell/Desktop/uploads/' + parsedUrl;
+    this.herbService.getImage(this.imageUrl).subscribe(
+      (data: Blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          this.displayedImage = reader.result as string;
+        };
+        reader.readAsDataURL(data);
+      },
+    );
   }
 }

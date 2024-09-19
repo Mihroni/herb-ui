@@ -7,7 +7,7 @@
 
         <!-- Herb Image -->
         <div *ngIf="herb.imageUrl" class="herb-image-container">
-          <img [src]="this.imageUrl" alt="{{ herb.name }}" class="herb-image" />
+          <img [src]="displayedImage" alt="{{ herb.name }}" class="herb-image" />
         </div>
 
         <!-- Description and other details -->

@@ -53,4 +53,11 @@ export class HerbService {
       })
     );
   }
+
+  getImage(imageUrl: string): Observable<Blob> {
+    return this.http.get(`http://localhost:8080/herbs/getImage`, {
+      params: { imageUrl },
+      responseType: 'blob'
+    });
+  }
 }
